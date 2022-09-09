@@ -1,0 +1,46 @@
+<?php
+
+	$server = "{intra.spsbv.cz:143/notls}";
+	@$mbox = imap_open($server, $_POST["login"], $_POST["heslo"]);
+	
+	if ($mbox) {
+		//$_SESSION["sesmbox"] = $mbox;
+		imap_close($mbox);
+		//$_SESSION["prihlasen"] = $_POST["login"];
+		
+		include "mysql-conn.php";
+		
+		$login = stripslashes($login);
+		$heslo = stripslashes($heslo);
+		$login = mysql_real_escape_string($login);
+		$heslo = mysql_real_escape_string($heslo);
+		
+		$zapsan = mysql_num_rows(mysql_query("SELECT * FROM uzivatele WHERE login='$login'"));
+		
+		if ($zapsan==0){	
+			$pocetradku = mysql_num_rows(mysql_query("SELECT * FROM uzivatele"));
+			$id = $pocetradku + 1;
+			$pridejuziv = "INSERT INTO uzivatele (id, login, jmeno_a_prijmeni, heslo, opravneni, blokovat, imap) VALUES ('$id', '$login', '', MD5('$heslo'), '0', '0', '1')";
+			mysql_query($pridejuziv);
+		}
+		
+		$testuzivpovolen = mysql_fetch_assoc(mysql_query("SELECT blokovat FROM uzivatele WHERE login='$login'"));
+		
+		if ($testuzivpovolen["blokovat"]=="1"){
+			$uzivatelblokovan = $testuzivpovolen["blokovat"];
+		}
+		
+		$testimap = mysql_fetch_assoc(mysql_query("SELECT imap FROM uzivatele WHERE login='$login'"));
+
+		if ($testimap["imap"]=="1"){
+			$_SESSION["sesimap"] = $testimap["imap"];
+		}
+
+		mysql_close($mysql_conn);
+		
+		//echo "<script>window.location='index.php?page=projekty'</script>";
+	}
+	else{
+		imap_close($mbox);
+	}
+?>

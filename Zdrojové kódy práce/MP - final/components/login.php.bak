@@ -1,0 +1,78 @@
+<?php
+
+if($_POST['login'] != "") {
+	$login = $_POST['login'];
+	$heslo = $_POST['heslo'];
+
+	include "login-imap.php";
+
+	$heslo = md5($heslo);
+
+	//$login_def = "zavodny";
+	//$heslo_def = "c4025c6fb582e687b11738a1fb416993";
+
+	include "login-mysql.php";
+
+	if($login == $login_def && $heslo == $heslo_def && !isset($uzivatelblokovan)){
+		session_start();
+		$_SESSION['prihlasen'] = $login;
+
+		echo "<script>window.location='index.php?page=projekty'</script>";
+	}
+
+/*	else if(($login != $login_def || $heslo != $heslo_def) && ($login != "" && $heslo != "")){
+		echo '
+			<div class="msg">
+				Špatné jméno nebo heslo. <br />
+				Přihlaste se prosím znovu.
+			</div>
+		';      
+	}*/
+	
+	else if(isset($uzivatelblokovan)){
+		echo '
+			<div class="msg">
+				Přihlášení se nezdařilo. <br />
+				Uživatel blokován.
+			</div>
+		';      
+	}
+	else {
+		echo '
+			<div class="msg">
+				Špatné jméno nebo heslo. <br />
+				Přihlaste se prosím znovu.
+			</div>
+		';     
+	}
+}
+?>
+
+<form class="login" action="?page=login" method="POST">
+  
+  <fieldset>
+    
+  	<legend class="legend">Přihlášení</legend>
+    
+    <div class="input">
+    	<input type="text" placeholder="Login" name="login" required />
+      <span><i class="fa fa-user"></i></span>
+    </div>
+    
+    <div class="input">
+    	<input type="password" placeholder="Heslo" name="heslo" required />
+      <span><i class="fa fa-lock"></i></span>
+    </div>
+    
+    <button type="submit" class="submit"><i class="fa fa-long-arrow-right"></i></button>
+    
+  </fieldset>
+
+	<div class="feedback">
+		Probíhá ověřování... <br />
+		Prosím čekejte
+  </div>
+  
+</form>
+
+<script src="js/login.js" type="text/javascript"></script>

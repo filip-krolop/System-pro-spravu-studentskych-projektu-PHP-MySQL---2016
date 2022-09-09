@@ -1,0 +1,286 @@
+/* unvisited link */
+.razeni:link {
+    color: white;
+	text-decoration: none;
+}
+
+/* visited link */
+.razeni:visited {
+    color: white;
+	text-decoration: none;
+}
+
+/* mouse over link */
+.razeni:hover {
+    color: red;
+	text-decoration: none;
+}
+
+/* selected link */
+.razeni:active {
+    color: white;
+	text-decoration: none;
+}
+
+.searchbox {
+	margin: 25px auto 0px auto;
+	width: 400px;
+}
+
+.modal-table tr.mezera > td{
+	padding-bottom: 0.4em;
+}
+
+.onoffswitch {
+    position: relative; width: 58px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 10px; padding: 0; line-height: 10px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ANO";
+    padding-left: 10px;
+    background-color: #34A7C1; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "NE";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 10px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 44px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+.vyhledavac {
+	border-width:2px;
+	border-color:#cccccc;
+	padding:9px;
+	font-size:18px;
+	border-radius:15px;
+	-moz-border-radius:15px; 
+	-webkit-border-radius:15px;
+	border-style:solid;
+	width: 300px;
+}
+.vyhledavac:focus { outline:none; }
+
+.pridatuziv { margin:auto 70%; }
+
+.tlacitko {
+    background: #0C9DF3;
+    color: #fff;
+    font-family: Sans-serif;
+    font-size: 18px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border: 1px solid #ccc;
+	border-radius: 15px;
+	-moz-border-radius: 15px; 
+	-webkit-border-radius: 15px;
+    transition: all 0.2s ease 0s;
+}
+
+.tlacitko:hover, .tlacitko:focus {
+	background: #fff;
+	color: #0C9DF3;
+	outline: none;
+}
+
+.tabulkacss tr:first-child th:first-child {
+	-moz-border-radius-topleft: 15px;
+	-webkit-border-top-left-radius: 15px;
+	border-top-left-radius: 15px;
+}
+.tabulkacss tr:first-child th:last-child {
+	-moz-border-radius-topright: 15px;
+	-webkit-border-top-right-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.tabulkacss tr:last-child th:first-child {
+	-moz-border-radius-bottomleft: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+.tabulkacss tr:last-child th:last-child {
+	-moz-border-radius-bottomright: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+.tabulkacss tr:first-child td:first-child {
+	-moz-border-radius-topleft: 15px;
+	-webkit-border-top-left-radius: 15px;
+	border-top-left-radius: 15px;
+}
+.tabulkacss tr:first-child td:last-child {
+	-moz-border-radius-topright: 15px;
+	-webkit-border-top-right-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.tabulkacss tr:last-child td:first-child {
+	-moz-border-radius-bottomleft: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+.tabulkacss tr:last-child td:last-child {
+	-moz-border-radius-bottomright: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+.tabulkacss {
+  font-family: 'Arial';
+  margin: 25px auto;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+}
+.tabulkacss tr td {
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+.tabulkacss tr:hover td {
+  background: #f4f4f4;
+  color: #555;
+}
+.tabulkacss th, .tabulkacss td {
+  color: #fff;
+  border: 1px solid #ccc;
+  padding: 12px 10px;
+}
+.tabulkacss th {
+  background: #0C9DF3;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.tabulkacss th.last {
+  border-right: none;
+}
+
+.btn {
+  background: #428bca;
+  border: #357ebd solid 1px;
+  border-radius: 15px;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 15px;
+  text-decoration: none;
+  text-align: center;
+  min-width: 60px;
+  position: relative;
+  transition: color .1s ease;
+}
+.btn:hover {
+  background: #357ebd;
+}
+.btn.ano {
+  background: #ff0000;
+}
+.btn.ano:hover {
+  background: #cc0000;
+}
+.btn-close {
+  color: #aaa;
+  font-size: 30px;
+  text-decoration: none;
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+.btn-close:hover {
+  color: #919191;
+}
+.modal {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  color: #333;
+  font-family: 'Helvetica', arial;
+}
+.modal:before {
+  content: "";
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+.modal:target:before {
+  display: block;
+}
+.modal:target .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  top: 20%;
+}
+.modal-dialog {
+  background: #fefefe;
+  border: #333 solid 1px;
+  border-radius: 15px;
+  margin-left: -300px;
+  position: fixed;
+  left: 50%;
+  top: -100%;
+  z-index: 11;
+  width: 600px;
+  -webkit-transform: translate(0, -500%);
+  -ms-transform: translate(0, -500%);
+  transform: translate(0, -500%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.modal-body {
+  padding: 20px;
+}
+.modal-header,
+.modal-footer {
+  padding: 10px 20px;
+}
+.modal-header {
+  border-bottom: #eee solid 1px;
+}
+.modal-header h2 {
+  font-size: 20px;
+}
+.modal-footer {
+  border-top: #eee solid 1px;
+  text-align: right;
+}

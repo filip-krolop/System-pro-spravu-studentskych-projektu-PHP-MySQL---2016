@@ -1,0 +1,8 @@
+* {
+	behavior: url(../js/PIE.htc);
+}
+
+html,
+body {
+	behavior: url(../js/PIE.htc);
+}

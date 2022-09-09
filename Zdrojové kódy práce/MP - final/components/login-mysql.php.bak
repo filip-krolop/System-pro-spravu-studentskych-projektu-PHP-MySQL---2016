@@ -1,0 +1,36 @@
+<?php
+
+include "mysql-conn.php";
+
+if ($_SESSION["sesimap"]!="1"){
+	$login = stripslashes($login);
+	$heslo = stripslashes($heslo);
+	$login = mysql_real_escape_string($login);
+	$heslo = mysql_real_escape_string($heslo);
+}
+
+//$sql = "SELECT login, heslo FROM uzivatele WHERE login='$login'";
+$vyberlogin = mysql_query("SELECT login, heslo, opravneni, blokovat FROM uzivatele WHERE login='$login' AND heslo='$heslo'");
+$nalezen = mysql_num_rows($vyberlogin);
+if ($nalezen != "0"){
+	$vybrano = mysql_fetch_assoc($vyberlogin);
+	$_SESSION["opravneni"] = $vybrano["opravneni"];
+	$login_def = $vybrano["login"];
+	$heslo_def = $vybrano["heslo"];
+}
+else {
+	$login_def = "";
+	$heslo_def = "";
+}
+
+//$vyber_logindata = mysql_query($sql);
+
+//$data = mysql_fetch_assoc($vyber_logindata);
+
+//$login_def = $data["login"];
+//$heslo_def = $data["heslo"];
+
+//echo $login."</br>".$login_def."</br>".$heslo."</br>".$heslo_def;
+mysql_close($mysql_conn);
+
+?>
